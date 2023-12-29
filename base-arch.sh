@@ -91,7 +91,8 @@ sed -i "s/^#include = /etc/pacman.d/mirrorlist.*/include = /etc/pacman.d/mirrorl
 pacman -Syu
 
 echo "Creating user: ${userName}"
-echo $userName:$userPassword | chpasswd
+echo "root:123" | chpasswd
+echo "${userName}:${userPassword}" | chpasswd
 sed '/^root All=(ALL:ALL) ALL.*/a ${userName} All=(ALL:ALL) ALL' /etc/sudoers
 
 EOF
