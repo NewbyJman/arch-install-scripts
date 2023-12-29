@@ -12,6 +12,7 @@ echo "Setting Time Zone"
 timedatectl set-timezone $timeZone
 
 echo "Creating Partitions (no swap)"
+fdisk -W always /dev/sda
 
 (
     # Delete existing partitions
