@@ -12,15 +12,9 @@ echo "Setting Time Zone"
 timedatectl set-timezone $timeZone
 
 echo "Creating Partitions (no swap)"
-fdisk -W always /dev/sda
 
 (
-    # Delete existing partitions
-    echo d
-    echo d
-    echo d
-    echo g #Create new parition table
-
+    echo g
     # EFI partition
     echo n      # Add new parition
     echo 1      # Parition number
@@ -41,10 +35,10 @@ fdisk -W always /dev/sda
 
     #Write changes
     echo w
-) | fdisk /dev/sda
+) | fdisk -W always /dev/sda
 
 echo "Formatting Partitions"
-mkfs.fat -F32 /dev/sda1
+mkfs.fat -F 32 /dev/sda1
 mkfs.ext4 /dev/sda2
 
 echo "Mounting Partitions"
@@ -87,14 +81,18 @@ echo "Enabling multilib"
 sed -i "s/^#VerbosePkgLists.*/VerbosePkgLists/" /etc/pacman.conf
 sed -i "s/^#ParallelDownloads = .*/ParallelDownloads = 5/" /etc/pacman.conf
 sed -i "/^ParallelDownloads = 5.*/a ILoveCandy" /etc/pacman.conf
-sed -i "s/^#[multilib].*/[multilib]/" /etc/pacman.conf
-sed -i "s/^#include = /etc/pacman.d/mirrorlist.*/include = /etc/pacman.d/mirrorlist/" /etc/pacman.conf
+cp /etc/pacman.conf /etc/pacman.conf.backup
+mline=$(grep -n "\\[multilib\\]" /etc/pacman.conf | cut -d: -f1)
+rline=$(($mline + 1))
+sed -i ''$mline's|#\[multilib\]|\[multilib\]|g' /etc/pacman.conf
+sed -i ''$rline's|#Include = /etc/pacman.d/mirrorlist|Include = /etc/pacman.d/mirrorlist|g' /etc/pacman.conf
 pacman -Syu
 
 echo "Creating user: ${userName}"
 echo "root:123" | chpasswd
+useradd -m $userName
 echo "${userName}:${userPassword}" | chpasswd
-sed '/^root All=(ALL:ALL) ALL.*/a ${userName} All=(ALL:ALL) ALL' /etc/sudoers
+echo '${userName} ALL=(ALL:ALL) ALL' | sudo EDITOR='tee -a' visudo
 
 EOF
 arch-chroot /mnt sh postMount.sh
