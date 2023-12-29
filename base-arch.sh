@@ -58,7 +58,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 cat <<EOF > /mnt/postMount.sh
 echo "Setting system clock"
-ln -sf usr/share/zoneinfo/Asia/Dubai /etc/localtime
+ln -sf usr/share/zoneinfo/$timeZone /etc/localtime
 hwclock --systohc
 
 echo "Generating locales"
