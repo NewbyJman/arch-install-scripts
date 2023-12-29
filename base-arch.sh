@@ -97,4 +97,4 @@ sed '/^root All=(ALL:ALL) ALL.*/a ${userName} All=(ALL:ALL) ALL' /etc/sudoers
 EOF
 arch-chroot /mnt sh postMount.sh
 umount -R /mnt
-reboot now
+shutdown now
