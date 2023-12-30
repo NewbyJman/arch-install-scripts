@@ -36,7 +36,7 @@ PKGS=(
 )
 
 for PKG in "${PKGS[@]}"; do
-    sudo pacman -S "$PKG" --noconfirm --needed
+    sudo pacman -S $PKG --noconfirm --needed
 done
 
 echo "Enabling services"
@@ -55,15 +55,14 @@ cd ..
 echo "Configuring ancient rt3290 bluetooth adapter"
 yay -S rtbth-dkms-git --noconfirm
 sudo systemctl enable bluetooth.service
-sudo echo rtbth >> /etc/modules-load.d/rtbth.conf
+sudo sh -c 'sudo echo rtbth >> /etc/modules-load.d/rtbth.conf'
 
 echo "Installing ancient nvidia drivers"
 yay -S nvidia-390xx-dkms nvidia-390xx-utils lib32-nvidia-390xx-utils --noconfirm
 sudo pacman -S libglvnd opencl-nvidia lib32-libglvnd lib32-opencl-nvidia nvidia-settings --noconfirm --needed
 sudo sh -c 'sed -i "s/^MODULES=().*/MODULES=(i915 nvidia nvidia_modeset nvidia_uvm nvidia_drm)/" /etc/mkinitcpio.conf'
 mkinitcpio -P
-grubConfig='s/^GRUB_CMDLINE_LINUX.*/GRUB_CMDLINE_LINUX="nvidia_drm.modeset=1 rd.driver.blacklist=nouveau modprob.blacklist=nouveau"/'
-sudo sh -c "sed -i ${grubConfig} /etc/mkinitcpio.conf"
+sudo sh -c "sed -i 's/^GRUB_CMDLINE_LINUX=.*/GRUB_CMDLINE_LINUX=\"nvidia_drm.modeset=1 rd.driver.blacklist=nouveau modprob.blacklist=nouveau\"/' /etc/default/grub"
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo mkdir /etc/pacman.d/hooks
 sudo bash -c  "cat <<EOT >> /etc/pacman.d/hooks/nvidia.hook 
