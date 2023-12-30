@@ -22,10 +22,9 @@ sudo rm -r Nordic
 echo "Downloading Dracula-purple kde theme"
 cd /usr/share/plasma
 sudo git clone https://github.com/dracula/gtk.git
-sudo mv gtk/kde/plasma/desktoptheme desktoptheme
-sudo mv /usr/share/desktoptheme /usr/share/plasma/desktoptheme
-sudo mv gtk/kde/plasma/look-and-feel look-and-feel
-sudo mv gtk/kde/color-schemes /usr/share/color-schemes
+sudo mv gtk/kde/plasma/desktoptheme/* desktoptheme
+sudo mv gtk/kde/plasma/look-and-feel/* look-and-feel
+sudo mv gtk/kde/color-schemes/* /usr/share/color-schemes
 sudo rm -r gtk
 
 echo "Downloading Dexy-Color-Dark icons"
