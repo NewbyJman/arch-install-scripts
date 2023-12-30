@@ -1,14 +1,10 @@
 echo "Deleting default media"
-sudo rm -r /usr/share/wallpapers/*
-sudo rm -r /usr/share/plasma/wallpapers/*
+# sudo rm -r /usr/share/wallpapers/*
+# sudo rm -r /usr/share/plasma/wallpapers/*
 # sudo rm -r /usr/share/plasma/avatars/*
-sudo mkdir /usr/share/gitMedia
-sudo mv media/* user/share/gitMedia
+# sudo mkdir /usr/share/gitMedia
+# sudo mv ~/arch-install-scripts/media/* user/share/gitMedia/
 
-kwriteconfig5 --file ~/.config/plasma-org.kde.plasma.desktop-appletsrc \
---group Containments --group 3 --group Applets --group 3 \
---group Configuration --group General \
---key icon /hom/zaib/arch-install-scripts/media/ssjblue.ico
 
 echo "Deleting default sddm themes"
 # sudo rm -r /usr/share/sddm/themes/*
@@ -21,12 +17,13 @@ echo "Deleting default kde themes"
 echo "Downloading Silvery-Dark-Plasma style"
 cd /usr/share/plasma
 sudo git clone https://github.com/L4ki/Silvery-Plasma-Themes.git
-sudo mv Silvery-Plasma-Themes/Silvery Plasma Themes/Silvery-Dark-Plasma/* desktoptheme/Silvery-Dark-Plasma
+sudo mv Silvery-Plasma-Themes/'Silvery Plasma Themes'/Silvery-Dark-Plasma desktoptheme
+sudo rm -r Silvery-Plasma-Themes
 
 echo "Downloading Peace-Color-Splash"
 cd /usr/share/plasma
 sudo git clone https://github.com/L4ki/Peace-Plasma-Themes.git
-sudo mv Peace-Plasma-Themes/Peace Splashscreens/Peace-Color-Splash look-and-feel/
+sudo mv Peace-Plasma-Themes/'Peace Splashscreens'/Peace-Color-Splash look-and-feel/
 sudo rm -r Peace-Plasma-Themes
 
 echo "Downloading Nordic-bluish sddm theme"
@@ -40,8 +37,8 @@ cd /usr/share/plasma
 sudo git clone https://github.com/dracula/gtk.git
 sudo mv gtk/kde/plasma/desktoptheme/Dracula desktoptheme
 sudo mv gtk/kde/plasma/look-and-feel/* look-and-feel
-sudo mv gtk/kde/color-schemes/DraculaPurple /usr/share/color-schemes
-sudo mv gtk/kde/cursors/* /usr/share/icons/Dracula-cursors
+sudo mv gtk/kde/color-schemes/DraculaPurple.colors /usr/share/color-schemes
+sudo mv gtk/kde/cursors/Dracula-cursors /usr/share/icons
 sudo rm -r gtk
 
 echo "Downloading Lavender-Light-Icons icons"
@@ -51,11 +48,11 @@ sudo mv Lavender-Plasma-Themes/Lavender-Icons/Lavender-Light-Icons Lavender-Ligh
 sudo rm -r Lavender-Plasma-Themes
 
 # lockscreen config
-kwriteconfig5 --file ~/.config/kscreenlockerrc --group Daemon --key Autolock false
-kwriteconfig5 --file ~/.config/kscreenlockerrc --group Daemon --key Timeout 30
-kwriteconfig5 --file ~/.config/kscreenlockerrc --group Daemon --key LockGrace 300
-kwriteconfig5 --file ~/.config/kscreenlockerrc --group Daemon --key LockOnResume false
-kwriteconfig5 --file kscreenlockerrc --group Greeter --group Wallpaper --group org.kde.image --group General --key Image "file:///home/zaib/arch-install-scripts/media/lockscreen.jpg"
+# kwriteconfig5 --file ~/.config/kscreenlockerrc --group Daemon --key Autolock false
+# kwriteconfig5 --file ~/.config/kscreenlockerrc --group Daemon --key Timeout 30
+# kwriteconfig5 --file ~/.config/kscreenlockerrc --group Daemon --key LockGrace 300
+# kwriteconfig5 --file ~/.config/kscreenlockerrc --group Daemon --key LockOnResume false
+# kwriteconfig5 --file kscreenlockerrc --group Greeter --group Wallpaper --group org.kde.image --group General --key Image "file:///home/zaib/arch-install-scripts/media/lockscreen.jpg"
 
 # touchpad config
 kwriteconfig5 --file ~/.config/touchpadxlibinputrc --group "SynPS/2 Synaptics TouchPad" --key disableWhileTyping false
@@ -69,8 +66,8 @@ kwriteconfig5 --file ~/.config/kdeglobals --group KDE --key ScrollbarLeftClickNa
 kwriteconfig5 --file ~/.config/kdeglobals --group KDE --key SingleClick false
 
 # Apply SDDM theme
-sudo bash -c 'sed sed -i "s/^Current=.*/Current=Nordic-bluish/" /etc/mkinitcpio.conf'
-sudo bash -c 'sed sed -i "s/^CursorTheme=.*/CursorTheme=Dracula-cursors/" /etc/mkinitcpio.conf'
+sudo bash -c 'sed -i "s/^Current=.*/Current=Nordic-bluish/" /lib/sddm/sddm.conf.d/default.conf'
+sudo bash -c 'sed -i "s/^CursorTheme=.*/CursorTheme=Dracula-cursors/" /lib/sddm/sddm.conf.d/default.conf'
 
 # Global settings
 kwriteconfig5 --file ~/.config/kdeglobals --group KDE --key LookAndFeelPackage Dracula
