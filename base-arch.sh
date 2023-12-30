@@ -14,12 +14,18 @@ timedatectl set-timezone $timeZone
 echo "Creating Partitions (no swap)"
 
 (
+    echo d
+    echo
+    echo d
+    echo 
+    echo d
+    echo 
     echo g
     # EFI partition
     echo n      # Add new parition
     echo 1      # Parition number
     echo        # First sector (default)
-    echo +500M  # Last sector
+    echo "+500M"  # Last sector
     echo t
     echo 1      # Partition number
     echo 1      # Set to EFI
@@ -34,12 +40,18 @@ echo "Creating Partitions (no swap)"
     echo 44      # Set to LVM
 
     #Write changes
+    echo p
     echo w
 ) | fdisk -W always /dev/sda
+
+fdisk -l
 
 echo "Formatting Partitions"
 mkfs.fat -F 32 /dev/sda1
 mkfs.ext4 /dev/sda2
+
+echo "Proceed to mounting?"
+read proceedMnt
 
 echo "Mounting Partitions"
 mount /dev/sda2 /mnt
@@ -85,7 +97,7 @@ cp /etc/pacman.conf /etc/pacman.conf.backup
 mline=$(grep -n "\\[multilib\\]" /etc/pacman.conf | cut -d: -f1)
 rline=$(($mline + 1))
 sed -i ''$mline's|#\[multilib\]|\[multilib\]|g' /etc/pacman.conf
-sed -i ''$rline's|#Include = /etc/pacman.d/mirrorlist|Include = /etc/pacman.d/mirrorlist|g' /etc/pacman.conf
+sed -i "/^[multilib].*/a Include = /etc/pacman.d/mirrorlist" /etc/pacman.conf
 pacman -Syu
 
 echo "Creating user: ${userName}"
