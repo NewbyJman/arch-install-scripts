@@ -1,0 +1,8 @@
+[user]
+showPreviews=true
+forceIconSize=true
+iconSize=28
+keyComboActive=true
+indicatorStyle=1
+inactiveIndicatorStyle=1
+indicatorColorFromTheme=false
