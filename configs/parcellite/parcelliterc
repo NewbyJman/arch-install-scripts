@@ -39,6 +39,6 @@ multi_user=true
 on_unity=false
 icon_name=parcellite
 menu_key=
-history_key=<Alt>V
+history_key=<Super>V
 phistory_key=<Ctrl><Alt>X
 actions_key=<Ctrl><Alt>A
