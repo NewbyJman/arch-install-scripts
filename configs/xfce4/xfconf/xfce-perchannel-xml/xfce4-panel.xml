@@ -83,12 +83,9 @@
     <property name="plugin-16" type="string" value="whiskermenu">
       <property name="recent" type="array">
         <value type="string" value="xfce4-web-browser.desktop"/>
-        <value type="string" value="xfce-mouse-settings.desktop"/>
-        <value type="string" value="xfce4-terminal-emulator.desktop"/>
-        <value type="string" value="xfce-keyboard-settings.desktop"/>
-        <value type="string" value="org.kde.kate.desktop"/>
         <value type="string" value="xfce-settings-manager.desktop"/>
       </property>
+      <property name="button-icon" type="string" value="/usr/share/gitMedia/ssjblue.ico"/>
     </property>
     <property name="plugin-17" type="string" value="separator"/>
     <property name="plugin-18" type="string" value="wavelan"/>
