@@ -1,6 +1,6 @@
 # Import media
-sudo mkdir /home/zaib/.local/share/gitMedia
-sudo mv /home/zaib/arch-install-scripts/media/* /home/zaib/.local/share/gitMedia/
+sudo mkdir -p /home/zaib/.local/share/gitMedia
+sudo mv -f /home/zaib/arch-install-scripts/media/* /home/zaib/.local/share/gitMedia/
 
 # Configure SDDM
 echo "Downloading sddm theme"
@@ -34,11 +34,11 @@ sudo mv -f Lavender-Plasma-Themes/Lavender-Icons/Lavender-Light-Icons Lavender-L
 sudo rm -r Lavender-Plasma-Themes
 
 # Configure global theme, cursor, icons
-xfconf-query -c xsettings -p /Net/ThemeName -s "Dracula"
-xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "Dracula-cursors"
-xfconf-query -c xsettings -p /Net/IconThemeName -s "Lavender-Light-Icons"
-xfconf-query -c xsettings -p /Gtk/FontName -s "System-ui 10"
-xfconf-query -c xsettings -p /Gtk/MonospaceFontName -s "Nimbus Sans 10"
+xfconf-query -c xsettings -p /Net/ThemeName -n -t string -s "Dracula"
+xfconf-query -c xsettings -p /Gtk/CursorThemeName -n -t string -s "Dracula-cursors"
+xfconf-query -c xsettings -p /Net/IconThemeName -n -t string -s "Lavender-Light-Icons"
+xfconf-query -c xsettings -p /Gtk/FontName -n -t string -s "System-ui 10"
+xfconf-query -c xsettings -p /Gtk/MonospaceFontName -n -t string -s "Nimbus Sans 10"
 xfconf-query -c xfwm4 -p /general/theme -s "Default"
 xfconf-query -c xfwm4 -p /general/title_alignment -s "left"
 xfconf-query -c xfwm4 -p /general/title_font -s "System-ui Bold 11"
@@ -151,8 +151,8 @@ xfconf-query -c xfce4-appfinder -p /text-beside-icons -n -t bool -s false
 # Terminal
 xfconf-query -c xfce4-terminal -p /misc-cursor-shape -n -t string -s "TERMINAL_CURSOR_SHAPE_IBEAM"
 xfconf-query -c xfce4-terminal -p /misc-cursor-blinks -n -t bool -s true
-xfconf-query -c xfce4-terminal -p /font-use-system -n -t bool false
-xfconf-query -c xfce4-terminal -p /font-name -n -t string "Source Code Pro Medium 15"
+xfconf-query -c xfce4-terminal -p /font-use-system -n -t bool -s false
+xfconf-query -c xfce4-terminal -p /font-name -n -t string -s "Source Code Pro Medium 15"
 xfconf-query -c xfce4-terminal -p /font-allow-bold -n -t bool -s true
 xfconf-query -c xfce4-terminal -p /background-mode -n -t string -s "TERMINAL_BACKGROUND_TRANSPARENT"
 xfconf-query -c xfce4-terminal -p /background-darkness -n -t double -s 0.9
