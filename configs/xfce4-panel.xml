@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="configver" type="int" value="2"/>
+  <property name="panels" type="array">
+    <value type="int" value="1"/>
+    <value type="int" value="2"/>
+    <property name="dark-mode" type="bool" value="false"/>
+    <property name="panel-1" type="empty">
+      <property name="position" type="string" value="p=8;x=88;y=747"/>
+      <property name="length" type="double" value="1"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="icon-size" type="uint" value="32"/>
+      <property name="size" type="uint" value="40"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="1"/>
+        <value type="int" value="5"/>
+        <value type="int" value="2"/>
+      </property>
+      <property name="length-adjust" type="bool" value="true"/>
+      <property name="autohide-behavior" type="uint" value="2"/>
+      <property name="enter-opacity" type="uint" value="80"/>
+      <property name="leave-opacity" type="uint" value="80"/>
+    </property>
+    <property name="panel-2" type="empty">
+      <property name="autohide-behavior" type="uint" value="2"/>
+      <property name="position" type="string" value="p=4;x=1221;y=742"/>
+      <property name="length" type="double" value="1"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="size" type="uint" value="40"/>
+      <property name="icon-size" type="uint" value="28"/>
+      <property name="enter-opacity" type="uint" value="80"/>
+      <property name="leave-opacity" type="uint" value="80"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="10"/>
+        <value type="int" value="6"/>
+        <value type="int" value="8"/>
+        <value type="int" value="13"/>
+        <value type="int" value="12"/>
+        <value type="int" value="4"/>
+        <value type="int" value="9"/>
+      </property>
+    </property>
+  </property>
+  <property name="plugins" type="empty">
+    <property name="plugin-5" type="string" value="separator">
+      <property name="style" type="uint" value="1"/>
+      <property name="expand" type="bool" value="false"/>
+    </property>
+    <property name="plugin-1" type="string" value="whiskermenu">
+      <property name="view-mode" type="int" value="0"/>
+      <property name="launcher-icon-size" type="int" value="3"/>
+      <property name="menu-opacity" type="int" value="80"/>
+      <property name="position-categories-alternate" type="bool" value="true"/>
+      <property name="position-search-alternate" type="bool" value="false"/>
+      <property name="position-categories-horizontal" type="bool" value="true"/>
+      <property name="button-icon" type="string" value="/home/zaib/.local/share/gitMedia/ssjblue.ico"/>
+      <property name="hover-switch-category" type="bool" value="true"/>
+      <property name="recent-items-max" type="int" value="0"/>
+      <property name="show-command-lockscreen" type="bool" value="false"/>
+      <property name="show-command-switchuser" type="bool" value="true"/>
+      <property name="show-command-logoutuser" type="bool" value="true"/>
+      <property name="show-command-restart" type="bool" value="true"/>
+      <property name="show-command-shutdown" type="bool" value="true"/>
+      <property name="show-command-logout" type="bool" value="false"/>
+      <property name="show-command-menueditor" type="bool" value="false"/>
+      <property name="favorites" type="array">
+        <value type="string" value="chromium.desktop"/>
+        <value type="string" value="nemo.desktop"/>
+        <value type="string" value="xfce4-terminal.desktop"/>
+      </property>
+      <property name="category-icon-size" type="int" value="2"/>
+    </property>
+    <property name="plugin-2" type="string" value="docklike"/>
+    <property name="plugin-4" type="string" value="clock">
+      <property name="timezone" type="string" value="Asia/Dubai"/>
+      <property name="command" type="string" value=""/>
+      <property name="tooltip-format" type="string" value="%A %d %B %Y"/>
+      <property name="digital-layout" type="uint" value="1"/>
+      <property name="digital-date-font" type="string" value="System-ui 8"/>
+      <property name="digital-date-format" type="string" value="%d %B %Y"/>
+      <property name="digital-time-font" type="string" value="System-ui Bold 12"/>
+      <property name="digital-time-format" type="string" value="%I:%M %p"/>
+    </property>
+    <property name="plugin-6" type="string" value="notification-plugin"/>
+    <property name="plugin-8" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+    </property>
+    <property name="plugin-9" type="string" value="showdesktop"/>
+    <property name="plugin-10" type="string" value="systray">
+      <property name="known-legacy-items" type="array">
+        <value type="string" value="eject applet"/>
+        <value type="string" value="wi-fi network connection “zaib-2g” active: zaib-2g (73%)"/>
+        <value type="string" value="cbatticon"/>
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="eject-applet"/>
+        <value type="string" value="xfce4-power-manager"/>
+        <value type="string" value="parcellite"/>
+      </property>
+      <property name="known-items" type="array">
+        <value type="string" value="blueman"/>
+      </property>
+      <property name="hidden-items" type="array">
+        <value type="string" value="blueman"/>
+      </property>
+      <property name="hide-new-items" type="bool" value="true"/>
+      <property name="square-icons" type="bool" value="true"/>
+      <property name="hidden-legacy-items" type="array">
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="eject-applet"/>
+        <value type="string" value="eject applet"/>
+        <value type="string" value="parcellite"/>
+        <value type="string" value="cbatticon"/>
+        <value type="string" value="wi-fi network connection “zaib-2g” active: zaib-2g (73%)"/>
+      </property>
+      <property name="icon-size" type="int" value="0"/>
+      <property name="single-row" type="bool" value="true"/>
+    </property>
+    <property name="plugin-12" type="string" value="separator">
+      <property name="style" type="uint" value="3"/>
+    </property>
+    <property name="plugin-13" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+  </property>
+</channel>
