@@ -7,8 +7,8 @@ echo "Downloading sddm theme"
 cd /usr/share/sddm/themes
 sudo rm -r /usr/share/sddm/themes/*
 sudo git clone https://github.com/MarianArlt/sddm-chili.git
-sudo echo "[Theme]" >> /usr/lib/sddm/sddm.conf.d/sddm.conf
-sudo echo "Current=sddm-chili" >> /usr/lib/sddm/sddm.conf.d/sddm.conf
+sudo bash -c 'echo "[Theme]" >> /usr/lib/sddm/sddm.conf.d/sddm.conf'
+sudo bash -c 'echo "Current=sddm-chili" >> /usr/lib/sddm/sddm.conf.d/sddm.conf'
 sudo bash -c 'sed -i "s/^Current=.*/Current=sddm-chili/" /lib/sddm/sddm.conf.d/default.conf'
 sudo bash -c 'sed -i "s/^CursorTheme=.*/CursorTheme=Dracula-cursors/" /lib/sddm/sddm.conf.d/default.conf'
 sudo cp /home/zaib/.local/share/gitMedia/gintoki.png /usr/share/sddm/faces/zaib.face.icon
@@ -20,9 +20,9 @@ sudo cp -f /home/zaib/arch-install-scripts/configs/sddm/Main.qml /usr/share/sddm
 # Download global theme, cursors, icons
 echo "Downloading Dracula-purple kde theme"
 cd /usr/share/themes
-sudo mkdir Dracula
+sudo mkdir -p Dracula
 sudo git clone https://github.com/dracula/gtk.git
-sudo mv gtk/kde/cursors/Dracula-cursors /usr/share/icons
+sudo mv -f gtk/kde/cursors/Dracula-cursors /usr/share/icons
 sudo rm -r gtk
 
 yay -Syy dracula-gtk-theme --noconfirm --removemake --noanswerclean --noanswerdiff
@@ -30,7 +30,7 @@ yay -Syy dracula-gtk-theme --noconfirm --removemake --noanswerclean --noanswerdi
 echo "Downloading Lavender-Light-Icons icons"
 cd /usr/share/icons
 sudo git clone https://github.com/L4ki/Lavender-Plasma-Themes.git
-sudo mv Lavender-Plasma-Themes/Lavender-Icons/Lavender-Light-Icons Lavender-Light-Icons
+sudo mv -f Lavender-Plasma-Themes/Lavender-Icons/Lavender-Light-Icons Lavender-Light-Icons
 sudo rm -r Lavender-Plasma-Themes
 
 # Configure global theme, cursor, icons
