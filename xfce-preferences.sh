@@ -1,6 +1,6 @@
 # Import media
 sudo mkdir -p /home/zaib/.local/share/gitMedia
-sudo mv -f /home/zaib/arch-install-scripts/media/* /home/zaib/.local/share/gitMedia/
+sudo cp -f /home/zaib/arch-install-scripts/media/* /home/zaib/.local/share/gitMedia/
 
 # Configure SDDM
 echo "Downloading sddm theme"
@@ -90,10 +90,7 @@ xfconf-query -c xfce4-keyboard-shortcuts -p /commands/custom/"<Alt>Return" -n -t
 xfconf-query -c xfce4-keyboard-shortcuts -p /commands/custom/"<Super>e" -n -t string -s "nemo"
 xfconf-query -c xfce4-keyboard-shortcuts -p /commands/custom/"<Super>t" -n -t string -s "xfce4-terminal"
 xfconf-query -c xfce4-keyboard-shortcuts -p /commands/custom/"<Alt>b" -n -t string -s "chromium google.co.uk"
-sed -i "/^menu_key=.*/a menu_key=" /home/zaib/.config/parcellite/parcelliterc
-sed -i "/^history_key=.*/a history_key=<Super>V" /home/zaib/.config/parcellite/parcelliterc
-sed -i "/^phistory_key=.*/a phistory_key=" /home/zaib/.config/parcellite/parcelliterc
-sed -i "/^actions_key=.*/a actions_key=" /home/zaib/.config/parcellite/parcelliterc
+sudo cp -f /home/zaib/arch-install-scripts/configs/parcelliterc /home/zaib/.config/parcellite/
 
 # power management and screensaver
 echo "screensaver"
@@ -134,16 +131,18 @@ xfconf-query -c xfce4-notifyd -p /plugin/log-only-today -n -t bool -s true
 xfconf-query -c xfce4-notifyd -p /log-max-size-enabled -n -t bool -s true
 
 # Mouse and touchpad
-echo "pointers"
-xfconf-query -c pointers -p SynPS2_Synaptics_touchpad -n -t "string" -s "replace me"
-sed -i 's/type="string" value="replace me"/type="empty"/g' /home/zaib/.config/xfce4/xfconf/xfce-perchannel-xml/pointers.xml
-xfconf-query -c pointers -p SynPS2_Synaptics_touchpad/RightHanded -n -t bool -s true
-xfconf-query -c pointers -p SynPS2_Synaptics_touchpad/ReverseScrolling -n -t bool -s true
-xfconf-query -c pointers -p SynPS2_Synaptics_touchpad/Threshold -n -t int -s 1
-xfconf-query -c pointers -p SynPS2_Synaptics_touchpad/Acceleration -n -t double -s 5
-xfconf-query -c pointers -p SynPS2_Synaptics_touchpad/Properties -n -t "string" -s "replace me"
-sed -i 's/type="string" value="replace me"/type="empty"/g' /home/zaib/.config/xfce4/xfconf/xfce-perchannel-xml/pointers.xml
-xfconf-query -c pointers -p SynPS2_Synaptics_touchpad/Properties/libinput_Tapping_Enabled -n -t int -s 1
+cat <<EOT >> /home/zaib/.config/xfce4/xfconf/xfce-perchannel-xml/pointers.xml
+    <?xml version="1.0" encoding="UTF-8"?>
+
+    <channel name="pointers" version="1.0">
+    <property name="SynPS2_Synaptics_TouchPad" type="empty">
+        <property name="RightHanded" type="bool" value="true"/>
+        <property name="ReverseScrolling" type="bool" value="true"/>
+        <property name="Threshold" type="int" value="1"/>
+        <property name="Acceleration" type="double" value="5"/>
+    </property>
+    </channel>
+EOT
 
 # appfinder
 echo "appfinder"
@@ -170,7 +169,7 @@ xfconf-query -c xfce4-terminal -p /color-foreground -n -t string -s "#d2d25050ff
 xfconf-query -c xfce4-terminal -p /tab-activity-color -n -t string -s "1c1c7171d8d8"
 
 # Import remaining conf files
-mv -f /home/zaib/arch-install-scripts/configs/xfce4-panel.xml /home/zaib/.config/xfce4/xfconf/xfce-perchannel-xml/
-sudo mv -f /home/zaib/arch-install-scripts/configs/startup/* /etc/xdg/autostart/
+sudo cp -f /home/zaib/arch-install-scripts/configs/xfce4-panel.xml /home/zaib/.config/xfce4/xfconf/xfce-perchannel-xml/
+sudo cp -f /home/zaib/arch-install-scripts/configs/startup/* /etc/xdg/autostart/
 
-# sudo rm -r /home/zaib/arch-install-scripts
+sudo rm -r /home/zaib/arch-install-scripts
