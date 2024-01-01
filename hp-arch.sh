@@ -5,10 +5,12 @@ PKGS=(
     "qt5-graphicaleffects"
 
     # XFCE
+    "xfdesktop"
     "xfce4-appfinder"
     "xfce4-panel"
     "xfce4-power-manager"
     "xfce4-session"
+    "xfce4-settings"
     "xfce4-terminal"
     "xfce4-xfconf"
     "xfwm4"
@@ -17,10 +19,6 @@ PKGS=(
     "xfce4-pulseaudio-plugin"
     "xfce4-taskmanager"
     "xfce4-whiskermenu-plugin"
-
-    # "xfce4 --ignore exo --ignore garcon --ignore xfdesktop --ignore xfwm4-themes --ignore thunar --ignore thunar-volman"
-    # "xfce4-goodies --ignore thunar-archive-plugin --ignore thunar-media-tags-plugin --ignore xfce4-clipman-plugin --ignore parole --ignore xfce4-screenshooter --ignore ristretto --ignore xburn --ignore xfce4-artwork --ignore xfce4-dict --ignore xfce4-eyes-plugin --ignore xfce4-diskperf-plugin --ignore xfce4-fsguard-plugin --ignore xfce4-genmon-plugin --ignore xfce4-mailwatch-plugin --ignore xfce4-mount-plugin --ignore xfce4-mpc-plugin --ignore xfce4-netload-plugin --ignore xfce4-notes-plugin --ignore xfce4-sensors-plugin --ignore xfce4-smartbookmark-plugin --ignore xfce4-systemload-plugin --ignore xfce4-time-out-plugin  --ignore xfce4-verve-plugin --ignore xfce4-weather-plugin"
-    # "nm-connection-editor"
     
     #Pipewire audio
     "pipewire"
