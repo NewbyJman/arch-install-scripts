@@ -1,11 +1,26 @@
 PKGS=(
-    # LightDM
+    # sddm
     "sddm"
+    "qt5-quickcontrols"
+    "qt5-graphicaleffects"
 
     # XFCE
-    "xfce4 --ignore exo --ignore garcon --ignore xfce4-appfinder --ignore xfwm4-themes"
-    "xfce4-goodies --ignore xfce4-clipman-plugin --ignore parole --ignore xfce4-screenshooter --ignore ristretto --ignore xburn --ignore xfce4-artwork --ignore xfce4-dict --ignore xfce4-eyes-plugin --ignore xfce4-diskperf-plugin --ignore xfce4-fsguard-plugin --ignore xfce4-genmon-plugin --ignore xfce4-mailwatch-plugin --ignore xfce4-mount-plugin --ignore xfce4-mpc-plugin --ignore xfce4-netload-plugin --ignore xfce4-notes-plugin --ignore xfce4-sensors-plugin --ignore xfce4-smartbookmark-plugin --ignore xfce4-systemload-plugin --ignore xfce4-time-out-plugin  --ignore xfce4-verve-plugin --ignore xfce4-weather-plugin"
-    "nm-connection-editor"
+    "xfce4-appfinder"
+    "xfce4-panel"
+    "xfce4-power-manager"
+    "xfce4-session"
+    "xfce4-terminal"
+    "xfce4-xfconf"
+    "xfwm4"
+    "mousepad"
+    "xfce4-notifyd"
+    "xfce4-pulseaudio-plugin"
+    "xfce4-taskmanager"
+    "xfce4-whiskermenu-plugin"
+
+    # "xfce4 --ignore exo --ignore garcon --ignore xfdesktop --ignore xfwm4-themes --ignore thunar --ignore thunar-volman"
+    # "xfce4-goodies --ignore thunar-archive-plugin --ignore thunar-media-tags-plugin --ignore xfce4-clipman-plugin --ignore parole --ignore xfce4-screenshooter --ignore ristretto --ignore xburn --ignore xfce4-artwork --ignore xfce4-dict --ignore xfce4-eyes-plugin --ignore xfce4-diskperf-plugin --ignore xfce4-fsguard-plugin --ignore xfce4-genmon-plugin --ignore xfce4-mailwatch-plugin --ignore xfce4-mount-plugin --ignore xfce4-mpc-plugin --ignore xfce4-netload-plugin --ignore xfce4-notes-plugin --ignore xfce4-sensors-plugin --ignore xfce4-smartbookmark-plugin --ignore xfce4-systemload-plugin --ignore xfce4-time-out-plugin  --ignore xfce4-verve-plugin --ignore xfce4-weather-plugin"
+    # "nm-connection-editor"
     
     #Pipewire audio
     "pipewire"
@@ -14,13 +29,15 @@ PKGS=(
     "pipewire-pulse"
 
     #Extras
+    "nemo"
+    "nemo-fileroller"
     "flameshot"
     "parcellite"
     "vlc"
     "chromium"
     "viewnior"
     "gimp"
-    "p7zip"
+    "network-manager-applet"
     "blueman"
     "pavucontrol"
 )
@@ -80,7 +97,7 @@ makepkg -si
 cd ..
 
 echo "Downloading yay applets"
-yay -S mugshot xfce4-docklike-plugin --noconfirm --noremovemake --noanswerclean --noanswerdiff
+yay -S mugshot xfce4-docklike-plugin eject-applet --noconfirm --noremovemake --noanswerclean --noanswerdiff
 
 echo "Configuring ancient rt3290 bluetooth adapter"
 yay -S rtbth-dkms-git --noconfirm --removemake --noanswerclean --noanswerdiff
@@ -120,4 +137,4 @@ echo "Set nvidia as default GPU"
 yay -S envycontrol --noconfirm --noremovemake --noanswerclean --noanswerdiff
 sudo envycontrol -s nvidia --dm sddm
 
-sudo reboot now
+# sudo reboot now
