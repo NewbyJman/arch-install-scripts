@@ -96,6 +96,7 @@ sed -i "/^phistory_key=.*/a phistory_key=" /home/zaib/.config/parcellite/parcell
 sed -i "/^actions_key=.*/a actions_key=" /home/zaib/.config/parcellite/parcelliterc
 
 # power management and screensaver
+echo "screensaver"
 xfconf-query -c xfce4-screensaver -p /lock -n -t "string" -s "replace me"
 xfconf-query -c xfce4-screensaver -p /saver -n -t "string" -s "replace me"
 sed -i 's/type="string" value="replace me"/type="empty"/g' /home/zaib/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-screensaver.xml
@@ -104,12 +105,14 @@ xfconf-query -c xfce4-screensaver -p /lock/enabled -n -t bool -s false
 xfconf-query -c xfce4-screensaver -p /saver/mode -n -t int -s 0
 xfconf-query -c xfce4-screensaver -p /saver/enabled -n -t bool -s false
 
+echo "session management"
 xfconf-query -c xfce4-session -p /general/SaveOnExit -n -t bool -s false
 xfconf-query -c xfce4-session -p /sessions/shutdown -r -R
 xfconf-query -c xfce4-session -p /sessions/shutdown -n -t "string" -s "replace me"
 sed -i 's/type="string" value="replace me"/type="empty"/g' /home/zaib/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-session.xml
 xfconf-query -c xfce4-session -p /sessions/shutdown/LockScreen -n -t bool -s false
 
+echo "power management"
 xfconf-query -c xfce4-power-manager -p /xfce4-power-manager -r -R
 xfconf-query -c xfce4-power-manager -p /xfce4-power-manager -n -t "string" -s "replace me"
 sed -i 's/type="string" value="replace me"/type="empty"/g' /home/zaib/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
@@ -122,6 +125,7 @@ xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-ac-sleep -n 
 xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-ac -n -t int -s 10
 
 # Notifications
+echo "Notifications"
 xfconf-query -c xfce4-notifyd -p /plugin -n -t "string" -s "replace me"
 sed -i 's/type="string" value="replace me"/type="empty"/g' /home/zaib/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-notifyd.xml
 xfconf-query -c xfce4-notifyd -p /plugin/hide-on-read -n -t bool -s true
@@ -130,6 +134,7 @@ xfconf-query -c xfce4-notifyd -p /plugin/log-only-today -n -t bool -s true
 xfconf-query -c xfce4-notifyd -p /log-max-size-enabled -n -t bool -s true
 
 # Mouse and touchpad
+echo "pointers"
 xfconf-query -c pointers -p SynPS2_Synaptics_touchpad -n -t "string" -s "replace me"
 sed -i 's/type="string" value="replace me"/type="empty"/g' /home/zaib/.config/xfce4/xfconf/xfce-perchannel-xml/pointers.xml
 xfconf-query -c pointers -p SynPS2_Synaptics_touchpad/RightHanded -n -t bool -s true
@@ -141,6 +146,7 @@ sed -i 's/type="string" value="replace me"/type="empty"/g' /home/zaib/.config/xf
 xfconf-query -c pointers -p SynPS2_Synaptics_touchpad/Properties/libinput_Tapping_Enabled -n -t int -s 1
 
 # appfinder
+echo "appfinder"
 xfconf-query -c xfce4-appfinder -p /hide-window-decorations -n -t bool -s true
 xfconf-query -c xfce4-appfinder -p /hide-category-pane -n -t bool -s true
 xfconf-query -c xfce4-appfinder -p /icon-view -n -t bool -s true
@@ -149,6 +155,7 @@ xfconf-query -c xfce4-appfinder -p /single-window -n -t bool -s true
 xfconf-query -c xfce4-appfinder -p /text-beside-icons -n -t bool -s false
 
 # Terminal
+echo "terminal"
 xfconf-query -c xfce4-terminal -p /misc-cursor-shape -n -t string -s "TERMINAL_CURSOR_SHAPE_IBEAM"
 xfconf-query -c xfce4-terminal -p /misc-cursor-blinks -n -t bool -s true
 xfconf-query -c xfce4-terminal -p /font-use-system -n -t bool -s false
