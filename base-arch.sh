@@ -82,7 +82,7 @@ echo "127.0.1.1     ${hostName}.localdomain     localhost" >> /etc/hosts
 mkinitcpio -P
 
 echo "Adding network, bluetooth, ssh, and grub"
-pacman -Syu networkmanager grub efibootmgr bluez bluez-plugins bluez-utils openssh dkms  --noconfirm --needed
+pacman -Syu networkmanager grub efibootmgr bluez bluez-plugins bluez-utils openssh dkms reflector --noconfirm --needed
 systemctl enable NetworkManager
 systemctl enable sshd
 systemctl enable bluetooth
