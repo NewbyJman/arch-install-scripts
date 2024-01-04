@@ -1,77 +1,44 @@
+sudo reflector --protocol https --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+
 PKGS=(
     # sddm
     "sddm qt5-quickcontrols qt5-graphicaleffects"
 
-    # XFCE
-    #"xfdesktop"
-    #"xfce4-session"
-    #"xfwm4"
-    "picom openbox lxappearance lxappearance-obconf nitrogen lxsession"
-    
-    "xfce4-panel"
-    "xfce4-power-manager"
-    #"xfce4-settings"
+    # XFCE components
+    # "xfdesktop xfwm4 xfce4-session xfce4-settings"
+
     "xfce4-terminal"
     "xfce4-xfconf"
-    "mousepad"
-    "xfce4-notifyd"
-    "xfce4-pulseaudio-plugin"
-    "xfce4-whiskermenu-plugin"
+
+    "xfce4-panel"
+    "xfce4-power-manager xfce4-notifyd xfce4-pulseaudio-plugin xfce4-whiskermenu-plugin"    
+
+    # Desktop utilities
+    "rofi"
+    "picom"
+    "openbox lxsession"
+    "nitrogen"
+    "lxappearance lxappearance-obconf"
+    "lxtask"
+    "nemo nemo-fileroller"
     
     #Pipewire audio
     "pipewire pipewire-alsa pipewire-media-session pipewire-pulse"
 
+    # Panel plugins
+    "network-manager-applet"
+    "blueman"
+    "pavucontrol"
+
     #Extras
-    "rofi"
-    "nemo nemo-fileroller"
-    "lxtask"
     "flameshot"
     "parcellite"
     "vlc"
     "chromium"
     "viewnior"
     "gimp"
-    "network-manager-applet"
-    "blueman"
-    "pavucontrol"
+    "mousepad"
 )
-
-# PKGS=(
-
-#     #KDE
-#     "xorg"
-#     "plasma-desktop"
-#     "plasma-wayland-session"
-#     "sddm"
-#     "sddm-kcm"
-#     "kamoso"
-
-#     #Pipewire audio
-#     "pipewire"
-#     "pipewire-alsa"
-#     "pipewire-media-session"
-#     "pipewire-pulse"
-
-#     #KDE applications
-#     "dolphin"
-#     "dolphin-plugins"
-#     "plasma-systemmonitor"
-#     "plasma-pa"
-#     "plasma-nm"
-#     "bluedevil"
-#     "konsole"
-#     "kate"
-#     "kamoso"
-
-#     #Extras
-#     "flameshot"
-#     "vlc"
-#     "chromium"
-#     "viewnior"
-#     "gimp"
-#     "p7zip"
-
-# )
 
 for PKG in "${PKGS[@]}"; do
     sudo pacman -S $PKG --noconfirm --needed
@@ -131,4 +98,4 @@ echo "Set nvidia as default GPU"
 yay -S envycontrol --noconfirm --noremovemake --noanswerclean --noanswerdiff
 sudo envycontrol -s nvidia --dm sddm
 
-# sudo reboot now
+sudo reboot now
