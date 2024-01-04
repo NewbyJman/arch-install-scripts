@@ -1,34 +1,29 @@
 PKGS=(
     # sddm
-    "sddm"
-    "qt5-quickcontrols"
-    "qt5-graphicaleffects"
+    "sddm qt5-quickcontrols qt5-graphicaleffects"
 
     # XFCE
-    "xfdesktop"
-    "xfce4-appfinder"
+    #"xfdesktop"
+    #"xfce4-session"
+    #"xfwm4"
+    "picom openbox lxappearance lxappearance-obconf nitrogen lxsession"
+    
     "xfce4-panel"
     "xfce4-power-manager"
-    "xfce4-session"
-    "xfce4-settings"
+    #"xfce4-settings"
     "xfce4-terminal"
     "xfce4-xfconf"
-    "xfwm4"
     "mousepad"
     "xfce4-notifyd"
     "xfce4-pulseaudio-plugin"
-    "xfce4-taskmanager"
     "xfce4-whiskermenu-plugin"
     
     #Pipewire audio
-    "pipewire"
-    "pipewire-alsa"
-    "pipewire-media-session"
-    "pipewire-pulse"
+    "pipewire pipewire-alsa pipewire-media-session pipewire-pulse"
 
     #Extras
-    "nemo"
-    "nemo-fileroller"
+    "nemo nemo-fileroller"
+    "lxtask"
     "flameshot"
     "parcellite"
     "vlc"
