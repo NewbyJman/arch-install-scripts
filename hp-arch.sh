@@ -22,6 +22,7 @@ PKGS=(
     "pipewire pipewire-alsa pipewire-media-session pipewire-pulse"
 
     #Extras
+    "rofi"
     "nemo nemo-fileroller"
     "lxtask"
     "flameshot"
