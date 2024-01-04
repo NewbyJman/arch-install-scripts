@@ -1,0 +1,107 @@
+* {
+    font: "System-ui 12";
+
+    bg0:  rgba ( 40, 42, 54, 90 % );
+    bg1:  rgba (98, 114, 164, 100 %);
+    bg2:  #f5f5f520;
+    bg3:  #f5f5f540;
+
+    fg0:  rgba (248, 248, 242, 100 % );
+    fg1:  rgba (248, 248, 242, 75 % );
+
+    background-color: transparent;
+    text-color:       @fg0;
+    padding:          0px;
+    margin:           0px;
+}
+
+configuration {
+  show-icons: true;
+}
+
+window {
+  width: 45%;
+  height: 55%;
+  padding: 0.5em;
+  background-color: @bg0;
+  border: 4px;
+  border-radius:  16px;
+
+  border-color: @bg1;
+}
+
+mainbox {
+  padding:  0.2em;
+}
+
+inputbar {
+  background-color: @bg2;
+
+  margin: 0.5em;
+  padding: 0.5em;
+  spacing:  4px;
+
+  border:         1px;
+  border-radius:  10px;
+  border-color:   @bg3;
+
+  children: [icon-search,entry];
+}
+
+prompt {
+  enabled:  false;
+}
+
+icon-search {
+  expand:   false;
+  filename: "search";
+  vertical-align: 0.5;
+}
+
+entry {
+  placeholder:        "Search...";
+  placeholder-color:  @fg1;
+}
+
+listview {
+  margin:   0.6em;
+  spacing:  18px;
+  columns:  3;
+  fixed-columns: true;
+  scrollbar: true;
+}
+
+scrollbar {
+    width:        4px ;
+    border:       0;
+    handle-width: 8px ;
+    padding:      0;
+    handle-color: @bg1;
+    border-radius: 10px;
+}
+
+element, element-text, element-icon {
+  cursor: pointer;
+}
+
+element {
+  padding:      8px;
+  spacing:      4px;
+
+  orientation:    vertical;
+  border-radius:  12px;
+}
+
+element selected {
+  background-color: @bg1;
+}
+
+element-icon {
+  size: 4em;
+  horizontal-align: 0.5;
+}
+
+element-text {
+  horizontal-align: 0.5;
+  lines: 2;
+}
