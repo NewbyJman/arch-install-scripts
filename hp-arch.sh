@@ -17,7 +17,8 @@ PKGS=(
     # "picom openbox lxsession lxappearance obconf xf86-input-synaptics-libinput"
     "nitrogen"
     "lxtask"
-    "nemo nemo-fileroller"
+    "nemo"
+    "nemo-fileroller"
     
     #Pipewire audio
     "pipewire pipewire-alsa pipewire-media-session pipewire-pulse"
@@ -35,6 +36,7 @@ PKGS=(
     "viewnior"
     "gimp"
     "mousepad"
+    "go"
 )
 
 for PKG in "${PKGS[@]}"; do
