@@ -55,6 +55,7 @@ xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0 -n -t "string" -s "r
 xfconf-query -c xfce4-desktop -p /desktop-icons -n -t "string" -s "replace me"
 xfconf-query -c xfce4-desktop -p /desktop-icons/file-icons -n -t "string" -s "replace me"
 sed -i 's/type="string" value="replace me"/type="empty"/g' /home/zaib/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
+sudo cp -f ~/arch-install-scripts/configs/nitrogen/* ~/.config/nitrogen/
 
 xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/image-path -n -t string -s /home/zaib/.local/share/gitMedia/wallpaper.png
 xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/image-show -n -t bool -s true
