@@ -80,7 +80,6 @@ echo "127.0.0.1     localhost" >> /etc/hosts
 echo "::1     localhost" >> /etc/hosts
 echo "127.0.1.1     ${hostName}.localdomain     localhost" >> /etc/hosts
 mkinitcpio -P
-
 echo "Adding network, bluetooth, ssh, and grub"
 pacman -Syu networkmanager grub efibootmgr bluez bluez-plugins bluez-utils openssh dkms reflector --noconfirm --needed
 systemctl enable NetworkManager
@@ -94,7 +93,6 @@ sed -i "s/^#VerbosePkgLists.*/VerbosePkgLists/" /etc/pacman.conf
 sed -i "s/^#ParallelDownloads = .*/ParallelDownloads = 5/" /etc/pacman.conf
 sed -i "/^ParallelDownloads = 5.*/a ILoveCandy" /etc/pacman.conf
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
-
 pacman -Syu
 
 echo "Creating user: ${userName}"
@@ -106,3 +104,4 @@ echo '${userName} ALL=(ALL:ALL) ALL' | sudo EDITOR='tee -a' visudo
 EOF
 arch-chroot /mnt sh postMount.sh
 umount -R /mnt
+shutdown now
