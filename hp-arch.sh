@@ -5,20 +5,17 @@ PKGS=(
     "sddm qt5-quickcontrols qt5-graphicaleffects"
 
     # XFCE components
-    # "xfdesktop xfwm4 xfce4-session xfce4-settings"
+    "xfwm4 xfce4-session xfce4-settings"
 
     "xfce4-terminal"
     "xfce4-xfconf"
-
     "xfce4-panel"
     "xfce4-power-manager xfce4-notifyd xfce4-pulseaudio-plugin xfce4-whiskermenu-plugin"    
 
     # Desktop utilities
     "rofi"
-    "picom"
-    "openbox lxsession"
+    # "picom openbox lxsession lxappearance obconf xf86-input-synaptics-libinput"
     "nitrogen"
-    "lxappearance lxappearance-obconf"
     "lxtask"
     "nemo nemo-fileroller"
     
