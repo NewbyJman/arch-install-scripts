@@ -48,6 +48,7 @@ xfconf-query -c xfwm4 -p /general/snap_width -s 10
 xfconf-query -c xfwm4 -p /general/wrap_windows -s false
 xfconf-query -c xfwm4 -p /general/wrap_workspaces -s false
 xfconf-query -c xfwm4 -p /general/wrap_resistance -s 10
+xfconf-query -c xfwm4 -p /general/workspace_count -s 1
 xfconf-query -c xfwm4 -p /general/double_click_action -s "maximize"
 
 # Configure desktop
